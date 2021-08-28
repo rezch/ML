@@ -1,3 +1,17 @@
+clust = df[["LATITUDE", "LONGITUDE"]]
+
+results = []
+for i in range(5, 21, 2):
+    print("Clusters: ", i)
+    model = KMeans(n_clusters=i)
+    model.fit(clust)
+    results.append(model.inertia_)
+
+plt.plot(range(5, 21, 2), results)
+plt.show()
+
+
+
 fig = plt.figure(figsize=[10, 8])
 
 reduced_data  = np.array(clust)
